@@ -2007,6 +2007,9 @@ body {
   @media (min-width: 768px) {
     .contentGeneral {
       padding-right: 10%; } }
+  @media (min-width: 1200px) {
+    .contentGeneral {
+      padding-right: 7%; } }
   .contentGeneral > * {
     position: relative;
     z-index: 1; }
@@ -2522,7 +2525,10 @@ html {
   @media (min-width: 1200px) {
     .servicios {
       padding-top: 0;
-      margin-bottom: 0; } }
+      margin-bottom: 0;
+      display: flex;
+      align-items: stretch;
+      padding-right: 5%; } }
   .servicios .contentGeneral__wrapper {
     display: flex;
     flex-flow: row wrap;
@@ -2531,6 +2537,10 @@ html {
       .servicios .contentGeneral__wrapper {
         display: block;
         padding-left: 30%; } }
+    @media (min-width: 1200px) {
+      .servicios .contentGeneral__wrapper {
+        display: flex;
+        flex-flow: column; } }
   .servicios .title__round {
     flex: 0 50%;
     order: 1; }
@@ -2550,11 +2560,35 @@ html {
   .servicios__description {
     flex: 0 50%;
     order: 2; }
+    @media (min-width: 1200px) {
+      .servicios__description {
+        display: table;
+        width: 100%;
+        height: 50%;
+        -webkit-transform: skewx(35deg);
+                transform: skewx(35deg);
+        border-left: 1px solid white;
+        margin-left: -30%;
+        padding: 2rem;
+        background: #3f3c79; }
+        .servicios__description p {
+          display: table-cell;
+          vertical-align: middle;
+          -webkit-transform: skewx(-35deg);
+                  transform: skewx(-35deg);
+          color: white !important; } }
   .servicios .grid {
     margin-top: 2rem;
     flex: 1 100%;
     order: 3;
     background: #3f3c79; }
+    @media (min-width: 1200px) {
+      .servicios .grid {
+        display: table;
+        width: 100%;
+        height: 50%;
+        margin: 0;
+        background: none; } }
     .servicios .grid__item {
       flex: 0 0 49%;
       padding: 2rem;
@@ -2568,7 +2602,14 @@ html {
           -webkit-transform: skewx(-35deg);
                   transform: skewx(-35deg);
           border-right: 1px solid white;
-          flex: 0 0 25%; } }
+          flex: 0 0 25%;
+          border-top: 1px solid white;
+          display: flex;
+          align-items: center;
+          justify-content: center; }
+          .servicios .grid__item:first-child {
+            border-left: 1px solid white;
+            margin-left: -15%; } }
       .servicios .grid__item:nth-child(odd) {
         border-right: 1px solid white; }
       .servicios .grid__item--title {
@@ -2595,6 +2636,9 @@ html {
       .servicios .grid__item ul {
         list-style: none;
         padding: 0; }
+    @media (min-width: 1200px) {
+      .servicios .grid__servicios {
+        height: 100%; } }
   .servicios__description {
     padding-right: 1rem;
     text-align: right; }

@@ -60,6 +60,7 @@
     "lg-pager.js": "^1.0.0",
     "lg-zoom.js": "^1.0.1",
     "lightgallery.js": "^1.0.2",
-    "package-lock.json": "^1.0.0"
+    "package-lock.json": "^1.0.0",
+    "popper.js": "^1.14.3"
   }
 }
