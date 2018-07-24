@@ -1,0 +1,67 @@
+/* Global margin e.g. silc-m--1
+   ========================================================================== */
+
+@each $margin-name, $margin-value in $silc-utilities--margin {
+
+    .#{$silc-utilities--namespace}m--#{$margin-name} {
+        margin: unquote($margin-value);
+    }
+
+}
+
+/* Specific margins e.g. silc-mtop--1
+   ========================================================================== */
+
+@each $margin-type in $silc-utilities--margin-types {
+
+    @each $margin-name, $margin-value in $silc-utilities--margin {
+
+        .#{$silc-utilities--namespace}m#{$margin-type}--#{$margin-name} {
+            margin-#{$margin-type}: unquote($margin-value);
+        }
+
+    }
+
+}
+
+/* Global margin with breakpoint modifiers e.g. silc-m--1-large
+   ========================================================================== */
+
+@each $breakpoint-name, $breakpoint-width in $silc-core--breakpoints {
+
+    @each $margin-name, $margin-value in $silc-utilities--margin {
+
+        @include media($breakpoint-name) {
+
+            .#{$silc-utilities--namespace}m--#{$margin-name}-#{$breakpoint-name} {
+                margin: unquote($margin-value);
+            }
+
+        }
+
+    }
+
+}
+
+/* Specific margins with breakpoint modifiers e.g. silc-mtop--1-large
+   ========================================================================== */
+
+@each $breakpoint-name, $breakpoint-width in $silc-core--breakpoints {
+
+    @each $margin-type in $silc-utilities--margin-types {
+
+        @each $margin-name, $margin-value in $silc-utilities--margin {
+
+            @include media($breakpoint-name) {
+
+                .#{$silc-utilities--namespace}m#{$margin-type}--#{$margin-name}-#{$breakpoint-name} {
+                    margin-#{$margin-type}: unquote($margin-value);
+                }
+
+            }
+
+        }
+
+    }
+
+}

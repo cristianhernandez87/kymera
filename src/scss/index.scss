@@ -1,0 +1,17 @@
+@import "~silc-core/src/scss/index";
+@import "~silc-grid/src/scss/index";
+@import "~silc-accordion/src/scss/index";
+@import "~silc-nav/src/scss/index";
+@import "~silc-offcanvas/src/scss/index";
+@import "~silc-utilities/src/scss/index";
+
+@import "~normalize.css";
+
+@import "silc/overrides";
+@import "../components/nav/nav";
+@import "../components/hero/hero";
+@import "../components/nosotros/nosotros";
+@import "../components/team/team";
+@import "../components/servicios/servicios";
+@import "../components/clientes/clientes";
+@import "../components/footer/footer";

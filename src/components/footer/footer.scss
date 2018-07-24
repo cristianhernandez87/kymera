@@ -1,0 +1,54 @@
+.footer {
+    min-height: auto;
+    padding-bottom: 1rem;
+    @include media('ipad') {
+        padding-left: 2rem;
+        padding-right: 12%;
+    }
+    &:before {
+        top: 0;
+        height: 80%;
+    }
+    .contentGeneral {
+        &__wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+        }
+    }
+    &__brand {
+        flex: 0 50%;
+        order: 1;
+        img { 
+            width: 80%;
+            margin: auto;
+            @include media('ipad') { width: 30%;}
+        }
+    }
+    &__info {
+        flex: 0 50%;
+        order: 2;
+        text-align: right;
+        a {color: white;}
+    }
+    &__social {
+        flex: 0 100%;
+        order: 3;
+        text-align: right;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid white;
+        a {
+            display: inline-block;
+            margin-left: 0.5rem;
+            &:last-child {
+                svg { width: 3rem;}
+            }
+            svg {
+                width: 1.5rem;
+                height: 1.5rem;
+                fill: white;
+            }
+        }
+    }
+}

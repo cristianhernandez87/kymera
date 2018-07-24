@@ -1,0 +1,67 @@
+/* Global padding e.g. silc-p--1
+   ========================================================================== */
+
+@each $padding-name, $padding-value in $silc-utilities--padding {
+
+    .#{$silc-utilities--namespace}p--#{$padding-name} {
+        padding: unquote($padding-value);
+    }
+
+}
+
+/* Specific paddings e.g. silc-ptop--1
+   ========================================================================== */
+
+@each $padding-type in $silc-utilities--padding-types {
+
+    @each $padding-name, $padding-value in $silc-utilities--padding {
+
+        .#{$silc-utilities--namespace}p#{$padding-type}--#{$padding-name} {
+            padding-#{$padding-type}: unquote($padding-value);
+        }
+
+    }
+
+}
+
+/* Global padding with breakpoint modifiers e.g. silc-p--1-large
+   ========================================================================== */
+
+@each $breakpoint-name, $breakpoint-width in $silc-core--breakpoints {
+
+    @each $padding-name, $padding-value in $silc-utilities--padding {
+
+        @include media($breakpoint-name) {
+
+            .#{$silc-utilities--namespace}p--#{$padding-name}-#{$breakpoint-name} {
+                padding: unquote($padding-value);
+            }
+
+        }
+
+    }
+
+}
+
+/* Specific paddings with breakpoint modifiers e.g. silc-ptop--1-large
+   ========================================================================== */
+
+@each $breakpoint-name, $breakpoint-width in $silc-core--breakpoints {
+
+    @each $padding-type in $silc-utilities--padding-types {
+
+        @each $padding-name, $padding-value in $silc-utilities--padding {
+
+            @include media($breakpoint-name) {
+
+                .#{$silc-utilities--namespace}p#{$padding-type}--#{$padding-name}-#{$breakpoint-name} {
+                    padding-#{$padding-type}: unquote($padding-value);
+                }
+
+            }
+
+        }
+
+    }
+
+}

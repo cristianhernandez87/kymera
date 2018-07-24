@@ -1,0 +1,129 @@
+.nosotros {
+    background-image: url(../img/nosotros_bg_mobile.svg);
+    background-color: white;
+    background-size: 100%;
+    background-position: center bottom;
+    align-items: baseline;
+    display: flex;
+    align-items: center;
+    @include media('ipad_port') {
+        background-image: url(../img/nosotros_bg_desktop.svg);
+        background-position: center 135%;
+    }
+    @include media('large') { 
+        background-position: center 200%;
+        overflow: hidden;
+    }
+    &:after { 
+        bottom: 0;
+        height: 9rem;
+        @include media('ipad_port') { display: none;}
+    }
+    &:before { 
+        top: 0;
+        height: 4rem;
+        @include media('ipad_port') {
+            height: 9rem;
+            width: 90%;
+        }
+    }
+    p { color: $purple;}
+    .contentGeneral {
+        &__wrapper {
+            margin-left: 3rem;
+            padding-left: 1rem;
+            border-left: 1px solid $pink;
+            @include media('ipad_port') {
+                display: flex;
+                flex-flow: row wrap;
+                padding: 0;
+                border: none;
+            }        
+        }
+    }
+    .title {
+        @include media('ipad_port') { flex: 1 100%;}
+    }
+    &__text {
+        @include media('ipad_port') { flex: 1 50%;}       
+        @include media('large') {
+            padding-left: 1rem;
+            border-left: 1px solid $pink;
+        }
+    }
+    &__icono {
+        @include media('ipad_port') {
+            flex: 1 50%;
+            position: relative;
+            span {
+                box-shadow: 7px 7px 20px 0px rgba(50, 50, 50, 0.32);
+                transform: rotate(45deg);
+                width: 15rem;
+                height: 15rem;
+                position: absolute;
+                top: 10%;
+                background-color: $purple;
+            }
+        }
+    }
+    &__box {
+        &--one { 
+            left: 40%;
+            &:after,
+            &:before {
+                position: absolute;
+                content: " ";
+                display: none;
+            }
+            &:after {
+                transform: rotate(-45deg);
+                border-top: 1px solid $blue;
+                border-bottom: 1px solid $blue;
+                //background: red;
+                @include media('large') {
+                    height: 142%;
+                    right: -206%;
+                    bottom: 85%;
+                    opacity: 0.5;
+                    width: 300%;
+                }
+
+            }
+            &::before {
+                transform: rotate(-45deg);
+                @include media('large') {
+                    height: 1px;
+                    right: -255%;
+                    bottom: 205%;
+                    width: 300%;
+                    background: $blue;
+                }
+            }
+            @include media('ipad_port') {
+                &:after,
+                &:before { display: block;}   
+            }
+        }
+        &--two { left: 30%;}
+        &--three { 
+            left: 20%;
+            @include media('ipad_port') {
+                &::after {
+                    position: absolute;
+                    content: " ";
+                    width: 80%;
+                    height: 80%;
+                    left: 10%;
+                    top: 10%;
+                    transform: rotate(-45deg);
+                    background: {
+                        image: url(../img/brand_short_white.svg);
+                        position: center center;
+                        size: 80%;
+                        repeat: no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,263 @@
+/*
+ * silc variable overrides
+ *
+ */
+
+// Fonts
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+@import url('../fonts/stylesheet.css');
+@import url('../fonts/boots.css');
+
+
+
+// Colors
+
+$purple:			#3f3c79;
+$purple_light:		#43437c;
+$blue:				#8fffe1;
+$pink:				#ff1a8d;
+
+// artefacts, mixins
+
+%general_shadow {
+	box-shadow: 7px 7px 20px 0px rgba(50, 50, 50, 0.32);
+	&:hover { box-shadow: 7px 7px 20px 0px rgba(0, 0, 0, 0.5);}
+}
+
+%transform {
+	transform: transition;
+	transition-duration: 0.5s;
+}
+
+%after-before-bas {
+	position: absolute;
+	content: " ";
+}
+
+%background {
+	background: {
+		repeat: no-repeat;
+		size: cover;
+		position: center center;
+		color: transparent;
+	}
+}
+
+%shadow-text { text-shadow: 3px 3px 4px rgba(33, 52, 79, 1);}
+
+@mixin linear-gradient($from, $to) {
+	background: $to;
+	  background: -moz-linear-gradient(top, $from 0%, $to 100%);
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$from), color-stop(100%,$to));
+	  background: -webkit-linear-gradient(top, $from 0%,$to 100%);
+	  background: -o-linear-gradient(top, $from 0%,$to 100%);
+	  background: linear-gradient(to bottom, $from 0%,$to 100%);
+	  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$from}, endColorstr=#{$to})
+  }
+
+@mixin border-radius($radius) { 
+	 -webkit-border-radius: $radius;
+		-moz-border-radius: $radius; 
+			 border-radius: $radius;
+}
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+    	    transform: $transforms;
+}
+
+$breakpoints: (
+  'ip4':  320px,
+  'ipX':  375px,
+  'ipad': 768px,
+  'ipad_port': 1024px,
+  'large': 1200px,
+  '1400_screen': 1400px,
+  '1600_screen': 1600px,
+  '1900_screen': 1920px,
+) !default;
+
+@mixin media($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+	  @media (min-width: map-get($breakpoints, $breakpoint)) {
+		@content;
+	  }
+	}
+	@else {
+	  @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+		  + "Available breakpoints are: #{map-keys($breakpoints)}.";
+	}
+  }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	background-color: $purple;
+	p { 
+		color: white;
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+	}
+}
+
+.contentGeneral {
+	@extend %background;
+	justify-content: center;
+	padding: 4rem 1rem 3rem;
+	min-height: 100%;
+	overflow-x: hidden;
+	position: relative;
+	display: flex;
+    align-items: center;
+    &:after,
+    &:before {
+        @extend %after-before-bas;
+        @extend %background;
+        width: 100%;
+        left: 0;
+        background-image: url(../img/bg_points_purple.svg);
+        background-repeat: repeat-y;
+		background-size: 100%;
+		background-position: top center;
+	}
+	&:after { transform: rotate(180deg);}
+	@include media('ipad') { padding-right: 10%;}
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+	&__wrapper {
+		width: 100%;
+	}
+}
+
+
+.title {
+	h2 {
+		color: $purple;
+		margin-bottom: 3rem;
+		font-size: 1.5rem;
+	}
+	&__box {
+		position: relative;
+		display: inline-block;
+		margin-top: 5rem;
+		margin-left: 4rem;
+		margin-bottom: 2rem;
+		span {
+			@extend %general_shadow;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: $blue;
+		}
+		&--one {
+			bottom: 2rem;
+			right: 2rem;
+			&:after {
+				@extend %after-before-bas;
+				width: 100%;
+				height: 100%;
+				right: 99%;
+				bottom: 2.6rem;
+				transform: skewY(30deg);
+				border-top: 1px solid white;
+				border-bottom: 1px solid white;
+			}
+			&::before {
+				@extend %after-before-bas;
+				width: 100%;
+				height: 100%;
+				right: 6.6rem;
+				bottom: 100%;
+				transform: skewX(60deg);
+				border-right: 1px solid white;
+			}
+		} 
+		&--two {
+			bottom: 1rem;
+			right: 1rem;
+		} 
+		&--title {
+			@extend %general_shadow;
+			background: $blue;
+			color: $purple;
+			font-size: 1.5rem;
+			font-weight: 400;
+			display: inline-block;
+			padding: 3rem 2rem;
+			position: relative;
+			margin: 0;
+		}
+	}
+
+	&__round {
+		text-align: center;
+		&--title {
+			@include border-radius(100%);
+			@extend %general_shadow;
+			font-size: 1.5rem;
+			padding: 4rem 1.5rem;
+			display: inline-block;
+			color: $purple;
+		}
+	}
+
+	&__linea {
+		text-align: center;
+		&--title {
+			font-size: 1.5rem;
+			color: $purple;
+			display: inline-block;
+			border-bottom: 3px solid $blue;
+		}
+	}
+}
+
+
+.grid {
+	&__clientes,
+	&__servicios,
+	&__team {
+		display: flex;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		flex-flow: wrap;
+	}
+	&__item {
+		flex: 0 0 50%;
+		position: relative;
+		margin-bottom: 1rem;
+		@include media('ipad') { flex: 0 0 33%;}
+		@include media('ipad') { flex: 0 0 25%;}
+		&--image {
+			padding: 0.5rem;
+			img { width: 100%;}
+			&--img {
+				border: 5px solid $purple_light;
+				box-shadow: 7px 7px 20px 0px rgba(50, 50, 50, 0.32);
+			}
+		}
+		&--captions { display: none;}
+		&--title {
+			margin-top: 0.5rem;
+			text-align: right;
+			p { 
+				color: $blue;
+				margin: 0;
+			}
+			&--position { font-weight: 700;}
+		}
+	}
+}

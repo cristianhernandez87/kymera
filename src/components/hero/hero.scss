@@ -1,0 +1,55 @@
+.hero {
+    &:after,
+    &:before { 
+        height: 40%;
+        @include media('ipad') { height: 30%;}
+    }
+    &:after { 
+        bottom: 0;
+        @include media('ipad') {
+            bottom: initial;
+            top: 0;
+        }
+    }
+    &:before { 
+        top: 3rem;
+        @include media('ipad') {
+            top: initial;
+            bottom: 1rem;
+        }
+    }
+    &__text {
+        text-align: right;
+        position: absolute;
+        bottom: 2rem;
+        right: 1rem;
+        @include media('ipad') {
+            left: 10%;
+            right: initial;
+            text-align: left;
+            bottom: 5rem;
+        }
+        p { 
+            color: $blue;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+    }
+    &__stuff {
+        margin-left: -1rem;
+        @include media('ipad') { 
+            position: absolute;
+            bottom: 0;
+        }
+        img { 
+            width: 50%;
+            @include media('large') { width: 120%;}
+        }
+    }
+    &__animation {
+        @include media('large') {
+            text-align: right;
+            img { max-width: 70%;}
+        }
+    }
+}

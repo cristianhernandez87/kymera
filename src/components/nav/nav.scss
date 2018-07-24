@@ -1,0 +1,240 @@
+html { scroll-behavior: smooth;}
+
+.header {
+    @extend %transform;
+    background: $purple;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    @include media('ipad') { background: none;}
+    &:after {
+        @extend %after-before-bas;
+        @extend %transform;
+        width: 100%;
+        height: 100%;
+        top: -150%;
+        left: 0;
+        background: white;
+        border-bottom: 5px solid black;
+    }
+	.img {
+        &--scroll { display: none;}
+        &--top { 
+            display: none;
+            @include media('ipad_port') { display: block;}
+        }
+        &--mobile {
+            @include media('ipad_port') { display: none;}
+        }
+	}
+	.brand {
+        position: relative;
+        z-index: 10;
+        a {
+            display: block;
+            //@include media('ipad_port') { display: block;}
+        }
+		img { 
+            width: 5rem;
+            @include media('ipad') { width: 10rem;}
+        }
+	}
+	.menu {
+		padding: 1rem;
+		display: flex;
+		justify-content: space-between;
+        position: relative;
+        a {
+            &:hover { text-decoration: none;}
+        }
+		&__hamburger {
+            transform: transition;
+            transition-duration: 1.5s;
+            position: fixed;
+            z-index: 10;
+            top: 1rem;
+            right: 1.5rem;
+            @include media('ipad') {
+                height: 100%;
+                background: $blue;
+                top: 0;
+                padding: 1rem;
+                right: 0;
+            }
+			svg {
+                @extend %transform;
+				width: 2rem;
+                height: 2rem;
+                margin-top: 0.5rem;
+                fill: $pink;
+                @include media('ipad') { fill: $purple;}
+			}
+		}
+		&__intern {
+            @extend %transform;
+			position: fixed;
+            width: 100%;
+            height: 100%;
+			top: -500%;
+			left: 0;
+			z-index: 9;
+			padding: 1rem;
+            background: $pink;
+            display: table;
+            @include media('large') {
+                top: 0;
+                left: initial;
+                right: -500%;
+                width: auto;
+                padding-right: 5rem;
+            }
+			&__social {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+				display: flex;
+                flex-direction: row;
+                width: 100%;
+                padding-top: 1rem;
+                margin-top: 1rem;
+                border-top: 1px solid white;
+                justify-content: center;
+			}
+			&__navegation {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: right;
+                @include media('ipad_port') {
+                    display: flex;
+                    justify-content: flex-end;
+                    width: 100%;
+                }
+				a {
+					padding: 0.25rem 0.5rem;
+					display: block;
+                    text-transform: uppercase;
+                    @include media('ipad') { font-size: 3rem;}
+				}
+			}
+			&--center {
+                transform: transition;
+	            transition-duration: 0.5s;
+                @include media('ipad_port') { 
+                    display: flex;
+                    width: 100%;
+                    position: fixed;
+                    top: 100%;
+                    justify-content: center;
+                    margin: 0;
+                    margin-top: -5rem;
+                    .menu__item {
+                        padding: 1rem 0;
+                        position: relative;
+                        overflow: hidden;
+                        a {
+                            position: relative;
+                            z-index: 2;
+                        }
+                    }
+                }
+            }
+            &--right {
+                text-align: center;
+                //margin-top: 2rem;
+                @include media('ipad_port') { display: flex;}
+                @include media('large') {
+                    flex-direction: column;
+                    text-align: right;
+                }
+            }
+            li { 
+                list-style: none;
+                &.hide {
+                    transform: transition;
+	                transition-duration: 0.5s;
+                    margin-top: -5rem;
+                }
+            }
+			a { 
+                color: white;
+                font-weight: 700;
+            }
+		}
+	}
+	.ico {
+		&__close {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+		&__open {
+			margin-top: 0.1rem;
+    		margin-bottom: -1rem;
+		}
+	}
+}
+
+.open-menu {
+    .header {
+        .menu {
+            &__intern { 
+                top: 0;
+                @include media('large') { right: 0;}
+            }
+            &__hamburger {
+                @include media('ipad') { background: $pink;}
+                svg { fill: $purple;}
+            }
+        }
+        .ico {
+            &__open { opacity: 0;}
+            &__close { 
+                opacity: 1;
+                @include media('ipad') {
+                    margin-top: 1.5rem;
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}
+
+.menu-top {
+    .header {
+        @include media('ipad_port') {
+            padding-top: 1rem;
+            border-top: none;
+            &:after { top: 0;}
+            .brand {
+                .img {
+                    &--scroll { display: block;}
+                    &--top { display: none;}
+                }
+            }
+            .menu {
+                padding: 0 1rem;
+                &__intern {
+                    &--wrapper { 
+                        background: none;
+                        padding: 0;
+                        .element-move { display: none;}
+                    }
+                    a { padding-bottom: 1rem;}
+                    &--right {
+                        position: relative;
+                        z-index: 3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.element-move {
+    @extend %background;
+    width: 1rem;
+    position: absolute;
+    height: 1rem;
+    left: 0;
+}

@@ -1,0 +1,11 @@
+@each $color-name, $color-value in $silc-utilities--colors {
+    
+    .#{$silc-utilities--namespace}color--#{$color-name} {
+        color: #{$color-value};
+    }
+
+    .#{$silc-utilities--namespace}bg--#{$color-name} {
+        background: #{$color-value};
+    }
+    
+}
