@@ -106,7 +106,7 @@ html { scroll-behavior: smooth;}
                 text-align: right;
                 @include media('ipad_port') {
                     display: flex;
-                    justify-content: flex-end;
+                    justify-content: center;
                     width: 100%;
                 }
 				a {
@@ -141,9 +141,11 @@ html { scroll-behavior: smooth;}
             &--right {
                 text-align: center;
                 //margin-top: 2rem;
-                @include media('ipad_port') { display: flex;}
-                @include media('large') {
+                @include media('ipad_port') { 
+                    display: flex;
                     flex-direction: column;
+                }
+                @include media('large') {
                     text-align: right;
                 }
             }
@@ -200,36 +202,36 @@ html { scroll-behavior: smooth;}
     }
 }
 
-.menu-top {
-    .header {
-        @include media('ipad_port') {
-            padding-top: 1rem;
-            border-top: none;
-            &:after { top: 0;}
-            .brand {
-                .img {
-                    &--scroll { display: block;}
-                    &--top { display: none;}
-                }
-            }
-            .menu {
-                padding: 0 1rem;
-                &__intern {
-                    &--wrapper { 
-                        background: none;
-                        padding: 0;
-                        .element-move { display: none;}
-                    }
-                    a { padding-bottom: 1rem;}
-                    &--right {
-                        position: relative;
-                        z-index: 3;
-                    }
-                }
-            }
-        }
-    }
-}
+// .menu-top {
+//     .header {
+//         @include media('ipad_port') {
+//             padding-top: 1rem;
+//             border-top: none;
+//             &:after { top: 0;}
+//             .brand {
+//                 .img {
+//                     &--scroll { display: block;}
+//                     &--top { display: none;}
+//                 }
+//             }
+//             .menu {
+//                 padding: 0 1rem;
+//                 &__intern {
+//                     &--wrapper { 
+//                         background: none;
+//                         padding: 0;
+//                         .element-move { display: none;}
+//                     }
+//                     a { padding-bottom: 1rem;}
+//                     &--right {
+//                         position: relative;
+//                         z-index: 3;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
 .element-move {
     @extend %background;

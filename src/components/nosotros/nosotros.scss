@@ -1,4 +1,6 @@
 .nosotros {
+    transform: transition;
+    transition-duration: 2s;
     background-image: url(../img/nosotros_bg_mobile.svg);
     background-color: white;
     background-size: 100%;
@@ -11,28 +13,32 @@
         background-position: center 135%;
     }
     @include media('large') { 
-        background-position: center 200%;
+        background-position: center 400%;
         overflow: hidden;
     }
+    @include media('1600_screen') { background-position: center 300%;}
+    @include media('1900_screen') { background-position: center 20.5rem;   }
     &:after { 
         bottom: 0;
         height: 9rem;
         @include media('ipad_port') { display: none;}
     }
     &:before { 
+        transform: transition;
+	    transition-duration: 1s;
         top: 0;
         height: 4rem;
         @include media('ipad_port') {
-            height: 9rem;
+            height: 0;
             width: 90%;
         }
     }
     p { color: $purple;}
     .contentGeneral {
         &__wrapper {
-            margin-left: 3rem;
-            padding-left: 1rem;
-            border-left: 1px solid $pink;
+            @extend %transform;
+            margin-left: 0;
+            @include media('large') { opacity: 0;}
             @include media('ipad_port') {
                 display: flex;
                 flex-flow: row wrap;
@@ -45,11 +51,26 @@
         @include media('ipad_port') { flex: 1 100%;}
     }
     &__text {
-        @include media('ipad_port') { flex: 1 50%;}       
-        @include media('large') {
-            padding-left: 1rem;
-            border-left: 1px solid $pink;
-        }
+        @include media('ipad_port') { flex: 1 50%;}    
+        &--somos {
+            @include media('large') {
+                display: flex;
+                align-items: center;
+                h2 { 
+                    font-size: 1.2rem;
+                    color: $purple;
+                    text-transform: uppercase;
+                }
+                &--p {
+                    transform: transition;
+	                transition-duration: 2.5s;
+                    padding-left: 1rem;
+                    margin-left: 1rem;
+                    border-left: 1px solid white;
+                    margin-bottom: 1rem;
+                }
+            }
+        }   
     }
     &__icono {
         @include media('ipad_port') {

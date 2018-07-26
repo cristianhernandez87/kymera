@@ -95,15 +95,45 @@ exports.silcCoreInit = silcCoreInit;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 function menuScroll() {
+    function eliminarClases() {
+        $("body").removeClass("bTop");
+        $("body").removeClass("bTop--2");
+        $("body").removeClass("bTop--3");
+        $("body").removeClass("bTop--4");
+        $("body").removeClass("bTop--5");
+        //console.log("elimina clases");
+    }
     $(window).scroll(function (event) {
+        var heightPosition = $(window).scrollTop();
+        var altura = $(window).height();
         var scroll = $(window).scrollTop();
-        if (scroll == 0) {
-            $("body").removeClass("menu-top");
-            console.log("laza clase");
+        //document.body.classList.contains('open-menu');
+        if (scroll >= 100) {
+            eliminarClases();
+            $("body").addClass("bTop");
         }
-        else {
-            $("body").addClass("menu-top");
+        if (scroll >= altura) {
+            eliminarClases();
+            $("body").addClass("bTop--2");
         }
+        if (scroll >= altura * 2) {
+            eliminarClases();
+            $("body").addClass("bTop--3");
+        }
+        if (scroll >= altura * 3) {
+            eliminarClases();
+            $("body").addClass("bTop--4");
+        }
+        if (scroll >= (altura * 4 + 1)) {
+            eliminarClases();
+            $("body").addClass("bTop--5");
+        }
+        if (scroll <= 100) {
+            $("body").removeClass("bTop");
+        }
+    });
+    $(".icon-down").on("click", function () {
+        moveMenu();
     });
     document.getElementById("menu-open").addEventListener("click", function () {
         moveMenu();
@@ -117,9 +147,6 @@ function menuScroll() {
         }
         ;
     }
-    $(".icon-down").on("click", function () {
-        moveMenu();
-    });
     initSmoothScrolling();
     function initSmoothScrolling() {
         if (isCssSmoothSCrollSupported()) {
@@ -183,6 +210,7 @@ function menuScroll() {
         }
     }
     function jump(target, options) {
+        moveMenu();
         var start = window.pageYOffset, opt = {
             duration: options.duration,
             offset: options.offset || 0,

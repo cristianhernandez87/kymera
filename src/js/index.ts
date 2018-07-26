@@ -14,5 +14,6 @@ import { menuScroll } from '../components/nav/menu';
 /**
  * Init
  */
+
 silcCoreInit();
 menuScroll();

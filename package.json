@@ -50,8 +50,9 @@
   },
   "dependencies": {
     "@frctl/fractal": "^1.1.7",
+    "ajv": "^6.5.2",
     "bootstrap": "^4.1.1",
-    "flickity": "^2.1.1",
+    "flickity": "^2.1.2",
     "flickity-fullscreen": "^1.0.1",
     "flickity-imagesloaded": "^2.0.0",
     "gsap": "^2.0.1",
@@ -60,7 +61,6 @@
     "lg-pager.js": "^1.0.0",
     "lg-zoom.js": "^1.0.1",
     "lightgallery.js": "^1.0.2",
-    "package-lock.json": "^1.0.0",
-    "popper.js": "^1.14.3"
+    "package-lock.json": "^1.0.0"
   }
 }

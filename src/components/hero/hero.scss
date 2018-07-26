@@ -29,6 +29,19 @@
             text-align: left;
             bottom: 5rem;
         }
+        @include media('large') {
+            bottom: initial;
+            top: 3.5rem;
+            left: 20%;   
+            overflow: hidden;
+            &--two,
+            &--three { display: none;}
+            &--one {
+                animation: animationFrames linear 4s;
+                animation-iteration-count: infinite;
+                transform-origin: 50% 50%;
+            }
+        }
         p { 
             color: $blue;
             font-weight: 700;
@@ -37,9 +50,28 @@
     }
     &__stuff {
         margin-left: -1rem;
-        @include media('ipad') { 
-            position: absolute;
-            bottom: 0;
+        &--right { 
+            display: none;
+            transform: transition;
+	        transition-duration: 0.5s;
+            @include media('large') { 
+                display: block;
+                bottom: initial;
+                top: -12rem;
+                right: 5%;
+            }
+        }
+        &--left {
+            transform: transition;
+	        transition-duration: 1s;
+            @include media('ipad') { left: -1rem;}
+        }
+        &--left,
+        &--right {
+            @include media('ipad') { 
+                position: absolute;
+                bottom: 0;
+            }
         }
         img { 
             width: 50%;
@@ -48,8 +80,20 @@
     }
     &__animation {
         @include media('large') {
-            text-align: right;
-            img { max-width: 70%;}
+            text-align: center;
+            img { max-width: 60%;}
         }
+    }
+}
+
+@keyframes animationFrames {
+    0% { transform:  translate(-100px,0px);}
+    100% { transform:  translate(200px,0px);}
+}
+
+
+.menu-top {
+    .hero__stuff--right {
+        @include media('large') { top: -25rem;}
     }
 }

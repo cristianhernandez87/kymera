@@ -17,9 +17,20 @@
 
         {{{ yield }}}
 
-        <script src="https://2-online.ru/files/public/inside/js/mediaplayer.yt_api.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+        <script src="https://2-online.ru/files/public/inside/js/mediaplayer.yt_api.js"></script>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         <script src="{{ path '/js/index.js' }}"></script>
+
+        <script>
+            $('.carousel').flickity({
+                // options
+                cellAlign: 'left',
+                contain: true,
+                // groupCells: true,
+                autoPlay: true
+            });
+        </script>
     </body>
 
 </html>
