@@ -54,6 +54,7 @@ html { scroll-behavior: smooth;}
             z-index: 10;
             top: 1rem;
             right: 1.5rem;
+            cursor: pointer;
             @include media('ipad') {
                 height: 100%;
                 background: $blue;
@@ -61,15 +62,47 @@ html { scroll-behavior: smooth;}
                 padding: 1rem;
                 right: 0;
             }
+            @include media('large') {
+                padding-left: 1.7rem;
+                padding-right: 1.7rem;
+            }
 			svg {
                 @extend %transform;
 				width: 2rem;
                 height: 2rem;
                 margin-top: 0.5rem;
                 fill: $pink;
-                @include media('ipad') { fill: $purple;}
+                @include media('ipad') { 
+                    fill: $purple;
+                    &:hover { fill: $pink;}
+                }
+                &:hover { fill: $pink;}
 			}
-		}
+        }
+        &__porta {
+            @extend %transform;
+            display: none;
+            @include media('large') {
+                cursor: pointer;
+                display: block;
+                position: fixed;
+                top: 50%;
+                right: 0;
+                z-index: 10;
+                padding-right: 0.5rem;
+                font-size: 1.5rem;
+                line-height: 100%;
+                font-weight: 900;
+                color: $purple;
+                text-align: right;
+                span { display: block;}
+                &:hover {
+                    background: $pink;
+                    color: white;
+                    padding: 1rem;
+                }
+            }
+        }
 		&__intern {
             @extend %transform;
 			position: fixed;
@@ -114,6 +147,10 @@ html { scroll-behavior: smooth;}
 					display: block;
                     text-transform: uppercase;
                     @include media('ipad') { font-size: 3rem;}
+                    &.menu--porta {
+                        display: block;
+                        @include media('large') { display: none;}
+                    }
 				}
 			}
 			&--center {
@@ -182,11 +219,24 @@ html { scroll-behavior: smooth;}
         .menu {
             &__intern { 
                 top: 0;
-                @include media('large') { right: 0;}
+                @include media('large') { 
+                    right: 0;
+                    
+                }
+                &__navegation {
+                    a {
+                        &.menu--porta {
+                            @include media('large') { display: block;} 
+                        }
+                    }
+                }
             }
             &__hamburger {
                 @include media('ipad') { background: $pink;}
                 svg { fill: $purple;}
+            }
+            &__porta { 
+                @include media('ipad') { display: none;}
             }
         }
         .ico {

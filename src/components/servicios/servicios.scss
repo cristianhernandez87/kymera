@@ -41,7 +41,7 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                margin-top: -2.5rem;
+                margin-top: -4.5rem;
                 margin-left: -5rem;
             }
         }
@@ -50,10 +50,11 @@
         flex: 0 50%;
         order: 2;
         @include media('large') {
+            padding-right: 5rem;
             display: table;
-            width: 130%;
+            width: 140%;
             height: 50%;
-            transform: skewx(35deg);
+            transform: skewx(45deg);
             border-left: 1px solid white;
             padding: 2rem;
             background-color: $purple;
@@ -69,16 +70,19 @@
                 background-repeat: repeat-y;
                 background-size: 100%;
                 background-position: top center;
-                transform: skewx(-35deg);
+                transform: skewx(-45deg);
             }
             p { 
                 display: table-cell;
                 vertical-align: middle;
-                transform: skewx(-35deg);
+                transform: skewx(-45deg);
                 color: white !important;
-                padding-right: 15%;
+                padding-right: 16rem;
+                font-family: 'Quicksand', sans-serif;
+                font-weight: 300;
                 position: relative;
                 z-index: 2;
+                
             }
         }
     }
@@ -101,7 +105,9 @@
             border-bottom: 1px solid white;
             @include media('ipad') { text-align: center;}
             @include media('large') {
-                transform: skewx(-35deg);
+                transform: transition;
+                transition-duration: 0.5s;
+                transform: skewx(-45deg);
                 border-right: 1px solid white;
                 flex: 0 0 25%;
                 border-top: 1px solid white;
@@ -113,7 +119,14 @@
                 background-color: $blue;
                 &:first-child { 
                     border-left: 1px solid white;
-                    margin-left: -15%;
+                    margin-left: -20%;
+                }
+                &:hover { 
+                    background-color: $purple;
+                    border-top-color: $purple;
+                    .grid__item--title { 
+                        h3 { color: white;}
+                    }
                 }
             }
             &:nth-child(odd) { border-right: 1px solid white;}
@@ -122,10 +135,11 @@
                 text-align: left;
                 @include media('ipad') { text-align: center;}
                 @include media('large') {
-                    transform: skewx(35deg);
+                    transform: skewx(45deg);
                     margin: 0;
                 }
                 h3 {
+                    @extend %transform;
                     color: white;
                     font-weight: 100;
                     font-size: 1.2rem;
@@ -151,7 +165,7 @@
                     content: "";
                     position: absolute;
                     bottom: 0;
-                    transform: skewx(-35deg);
+                    transform: skewx(-45deg);
                     height: 100%;
 
                 }

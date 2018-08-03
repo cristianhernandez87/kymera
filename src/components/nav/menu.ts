@@ -27,7 +27,7 @@ export function menuScroll() {
         } if (scroll >= altura * 3) {
             eliminarClases();
             $("body").addClass("bTop--4");
-        } if (scroll >= (altura * 4 + 1)) {
+        } if (scroll >= (altura * 4)) {
             eliminarClases();
             $("body").addClass("bTop--5");
         } if (scroll <= 100) {

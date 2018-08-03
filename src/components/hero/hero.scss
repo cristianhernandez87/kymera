@@ -12,7 +12,7 @@
         }
     }
     &:before { 
-        top: 3rem;
+        top: 0;
         @include media('ipad') {
             top: initial;
             bottom: 1rem;
@@ -34,18 +34,21 @@
             top: 3.5rem;
             left: 20%;   
             overflow: hidden;
-            &--two,
-            &--three { display: none;}
-            &--one {
-                animation: animationFrames linear 4s;
-                animation-iteration-count: infinite;
-                transform-origin: 50% 50%;
-            }
         }
         p { 
             color: $blue;
             font-weight: 700;
             font-size: 1.2rem;
+        }
+        &--animation {
+            display: none;
+            @include media('large') { display: block;}
+        }
+        &--one,
+        &--two,
+        &--three { 
+            display: block;
+            @include media('large') { display: none;}
         }
     }
     &__stuff {
@@ -56,22 +59,33 @@
 	        transition-duration: 0.5s;
             @include media('large') { 
                 display: block;
-                bottom: initial;
-                top: -12rem;
+                bottom: 0;
+                top: -250%;
                 right: 5%;
+                img { width: 16rem;}
             }
+            @include media('1900_screen') { top: -160%;}
         }
         &--left {
+            display: none;
             transform: transition;
-	        transition-duration: 1s;
-            @include media('ipad') { left: -1rem;}
+            transition-duration: 1s;
+            @media (min-width: 700px) and (orientation: landscape) {
+                img { display: none;}
+            }
+            @include media('ipad') { 
+                display: block;
+                left: -2rem;
+                bottom: -4rem;
+                img { 
+                    display: block;
+                    width: 17rem;
+                }
+            }
         }
         &--left,
         &--right {
-            @include media('ipad') { 
-                position: absolute;
-                bottom: 0;
-            }
+            @include media('ipad') { position: absolute;}
         }
         img { 
             width: 50%;
@@ -79,15 +93,19 @@
         }
     }
     &__animation {
+        @media (min-width: 700px) and (orientation: landscape) {
+            text-align: right;
+            img { width: 50%;}
+        }
         @include media('large') {
             text-align: center;
-            img { max-width: 60%;}
+            img { max-width: 50%;}
         }
     }
 }
 
 @keyframes animationFrames {
-    0% { transform:  translate(-100px,0px);}
+    0% { transform:  translate(-200px,0px);}
     100% { transform:  translate(200px,0px);}
 }
 

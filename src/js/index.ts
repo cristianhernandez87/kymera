@@ -9,6 +9,7 @@ import $ = require("jquery");
  */
 import { silcCoreInit } from 'silc-core';
 import { menuScroll } from '../components/nav/menu';
+import { textAnimationHero } from '../components/hero/hero';
 
 
 /**
@@ -17,3 +18,4 @@ import { menuScroll } from '../components/nav/menu';
 
 silcCoreInit();
 menuScroll();
+textAnimationHero();

@@ -11,13 +11,32 @@
         height: 9rem;
     }
     .grid {
-        @include media('large') {
-            padding-left: 25%;
-            background-image: url(../img/brand_letters_white.svg);
-            background-position: 1rem 10rem;
-            background-repeat: no-repeat;
-            background-size: 20%;
-            position: relative;
+        transform: transition;
+        transition-duration: 2s;
+        position: relative;
+        @include media('large') { opacity: 0;}
+        &:before {
+            @extend %after-before-bas;
+            width: 25%;
+            left: -2rem;
+            background-image: url(../img/bg_points_purple.svg);
+            background-repeat: repeat-y;
+            background-size: 230%;
+            background-position: top center;
+            top: 4rem;
+            height: 26rem;
+            display: none;
+            @include media('large') { display: block;}
+        }
+        .grid__team {
+            @include media('large') {
+                padding-left: 25%;
+                background-image: url(../img/brand_letters_white.svg);
+                background-position: 1rem 10rem;
+                background-repeat: no-repeat;
+                background-size: 20%;
+                position: relative;
+            }
         }
     }
 }

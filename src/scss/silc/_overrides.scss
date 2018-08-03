@@ -7,6 +7,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
 @import url('../fonts/stylesheet.css');
 @import url('../fonts/boots.css');
 
@@ -14,9 +15,9 @@
 
 // Colors
 
-$purple:			#3f3c79;
+$purple:			#3e3b7a;
 $purple_light:		#43437c;
-$blue:				#8fffe1;
+$blue:				#2cfee0;
 $pink:				#ff1a8d;
 
 // artefacts, mixins
@@ -113,7 +114,7 @@ body {
 .contentGeneral {
 	@extend %background;
 	justify-content: center;
-	padding: 4rem 1rem 3rem;
+	padding: 4rem 2rem 3rem;
 	min-height: 100%;
 	overflow-x: hidden;
 	position: relative;
@@ -133,7 +134,7 @@ body {
 	&:after { transform: rotate(180deg);}
 	@include media('ipad') { padding-right: 10%;}
 	@include media('large') { 
-		padding-right: 7%;
+		padding-right: 8rem;
 		overflow: hidden;
 	}
 	> * {
@@ -149,16 +150,22 @@ body {
 .title {
 	h2 {
 		color: $purple;
-		margin-bottom: 3rem;
+		margin-bottom: 1.5rem;
 		font-size: 1.5rem;
+		font-weight: 900;
 		@include media('large') { margin-bottom: 1rem;}
 	}
 	&__box {
+		@extend %transform;
 		position: relative;
 		display: inline-block;
 		margin-top: 5rem;
-		margin-left: 4rem;
+		margin-left: 2rem;
 		margin-bottom: 2rem;
+		@include media('large') { 
+			margin-left: 2rem;
+			margin-top: 7rem;
+		}
 		span {
 			@extend %general_shadow;
 			position: absolute;
@@ -170,16 +177,25 @@ body {
 			bottom: 2rem;
 			right: 2rem;
 			&:after {
+				@extend %transform;	
 				@extend %after-before-bas;
 				width: 100%;
-				height: 100%;
+				height: 99%;
 				right: 99%;
-				bottom: 4.5rem;
+				bottom: 3.5rem;
 				transform: skewY(45deg);
 				border-top: 1px solid white;
 				border-bottom: 1px solid white;
+				@include media('large') {
+					bottom: -4.55rem;
+					right: 0;
+					opacity: 0;
+					height: 100%;
+					bottom: 4.5rem;
+				}
 			}
 			&::before {
+				@extend %transform;	
 				@extend %after-before-bas;
 				width: 100%;
 				height: 100%;
@@ -187,6 +203,11 @@ body {
 				bottom: 100%;
 				transform: skewX(45deg);
 				border-right: 1px solid white;
+				@include media('large') {
+					bottom: 0;
+					right: -42%;
+					opacity: 0;
+				}
 			}
 		} 
 		&--two {
@@ -200,9 +221,11 @@ body {
 			font-size: 1.5rem;
 			font-weight: 400;
 			display: inline-block;
-			padding: 3rem 2rem;
+			padding: 2rem 1rem;
 			position: relative;
 			margin: 0;
+			font-weight: 900;
+			@include media('large') { padding: 3rem 2rem;}
 		}
 	}
 
@@ -215,6 +238,7 @@ body {
 			padding: 4rem 1.5rem;
 			display: inline-block;
 			color: $purple;
+			font-weight: 900;
 		}
 	}
 
@@ -239,6 +263,15 @@ body {
 		padding: 0;
 		list-style: none;
 		flex-flow: wrap;
+	}
+	&__servicios {
+		transform: transition;
+		transition-duration: 1s;
+		@include media('large') {
+			top: 15rem;
+			left: -50%;
+			opacity: 0;
+		}
 	}
 	&__item {
 		flex: 0 0 50%;
@@ -270,25 +303,80 @@ body {
 
 .bTop {
 	@include media('large') {
-		.hero__stuff--right { top: 15rem;}
-		.hero__stuff--left { 
-			transform: rotate(90deg);
-			bottom: 50%;
+		.hero__stuff--right { top: -100%;}
+		.nosotros {	
+			.contentGeneral {
+				&__wrapper { 
+					margin-left: 10%;
+					opacity: 1;
+				}
+			}
 		}
 		&--2 {
 			.nosotros {
-				background-position: center 200%;
+				background-position-y: 200%;
 				.contentGeneral {
 					&__wrapper { 
 						margin-left: 10%;
 						opacity: 1;
 					}
 				}
-				&:before { height: 9rem;}
 				.nosotros {
 					&__text--somos--p { border-color: $purple;}
 				}
 			}
+			.team {
+				.grid { opacity: 1;}
+			}
+		}
+		&--3 {
+			.team {
+				.grid { opacity: 1;}
+				.title {
+					&__box {
+						&--one {
+							&:after {
+								right: 99%;
+								bottom: 4.5rem;
+								opacity: 1;;
+							}
+							&:before {
+								right: 4rem;
+								bottom: 100%;
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+		&--4 {
+			.grid {
+				&__servicios {
+					top:0;
+					left: 0;
+					opacity: 1;
+				}
+			}
 		}
 	}
+
+	@include media('ipad_port') {
+		&--2 {
+			.nosotros {
+				&:before { height: 8rem;}
+			}
+		}
+	}
+
+	@include media('1600_screen') {
+		&--2 {
+			.nosotros { background-position-y: 300%;}
+		}
+	} 
+	@include media('1900_screen') {
+		&--2 {
+			.nosotros { background-position-y: -40%;}
+		}
+	} 
 }
