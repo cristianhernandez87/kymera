@@ -2,10 +2,14 @@
     &:after,
     &:before { 
         height: 40%;
+        width: 70%;
         @include media('ipad') { height: 30%;}
     }
     &:after { 
         bottom: 0;
+        top: 0;
+        right: 0;
+        left: initial;
         @include media('ipad') {
             bottom: initial;
             top: 0;
@@ -39,6 +43,7 @@
             color: $blue;
             font-weight: 700;
             font-size: 1.2rem;
+            @include media('large') { font-size: 2rem;}
         }
         &--animation {
             display: none;

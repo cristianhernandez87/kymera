@@ -1,14 +1,8 @@
 .team {
     padding-top: 0;
     align-items: baseline;
-    &:after { 
-        bottom: 0;
-        height: 9rem;
-        display: none;
-    }
-    &:before { 
-        top: 0;
-        height: 9rem;
+    &:after,
+    &:before { display: none;
     }
     .grid {
         transform: transition;
@@ -23,7 +17,7 @@
             background-repeat: repeat-y;
             background-size: 230%;
             background-position: top center;
-            top: 4rem;
+            top: 0;
             height: 26rem;
             display: none;
             @include media('large') { display: block;}

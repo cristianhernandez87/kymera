@@ -108,6 +108,7 @@ body {
 		color: white;
 		margin-top: 0;
 		margin-bottom: 0.5rem;
+		@include media('large') { margin-bottom: 0.2rem; }
 	}
 }
 

@@ -26,7 +26,7 @@
         bottom: 0;
         height: 9rem;
         display: none;
-        @include media('large') { display: block;}
+        //@include media('large') { display: block;}
     }
     &:before { 
         transform: transition;

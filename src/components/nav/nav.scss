@@ -35,8 +35,8 @@ html { scroll-behavior: smooth;}
             //@include media('ipad_port') { display: block;}
         }
 		img { 
-            width: 5rem;
-            @include media('ipad') { width: 10rem;}
+            width: 2.5rem;
+            @include media('ipad') { width: 7rem;}
         }
 	}
 	.menu {
